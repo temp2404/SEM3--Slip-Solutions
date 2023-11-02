@@ -1,0 +1,298 @@
+Slip_1
+> vector = c(4,14,24,34,44,54)
+> print(max(vector))
+[1] 54
+> print(min(vector))
+[1] 4
+
+
+Slip_2
+> vector = c(4,64,24,54,34,44)
+> print(sort(vector))
+[1]  4 24 34 44 54 64
+> print(sort(vector,decreasing=TRUE))
+[1] 64 54 44 34 24  4
+
+
+Slip_4
+> print(head(letters,10))
+ [1] "a" "b" "c" "d" "e" "f" "g" "h" "i" "j"
+> print(head(LETTERS,10))
+ [1] "A" "B" "C" "D" "E" "F" "G" "H" "I" "J"
+> print(head(LETTERS[22:24]))
+[1] "V" "W" "X"
+
+
+Slip_6
+> marks=c(97,95,93,92,90)
+> subjects=c("DSA","PHP","Big Data","Python","CPP")
+> barplot(marks,main="Marks of 5 Subject",xlab="Subject",ylab="Marks",names.arg=subjects,col="darkred",horiz=FALSE)
+
+
+Slip_7
+> emp_id = c(789,456,123,987,843)
+> emp_name = c("Omkar","Aarush","Vedant","Ved","Rohit")
+> emp_age = c(21,19,20,22,27)
+> emp_salary = c(99000,89000,79000,69000,59000)
+> emp = data.frame(emp_id,emp_name,emp_age,emp_salary)
+> print(emp)
+  emp_id emp_name emp_age emp_salary
+1    789    Omkar      21      99000
+2    456   Aarush      19      89000
+3    123   Vedant      20      79000
+4    987      Ved      22      69000
+5    843    Rohit      27      59000
+> emp[with(emp,order(emp_id)),]
+  emp_id emp_name emp_age emp_salary
+3    123   Vedant      20      79000
+2    456   Aarush      19      89000
+1    789    Omkar      21      99000
+5    843    Rohit      27      59000
+4    987      Ved      22      69000
+
+
+Slip_8
+> v1 = c(4,24,14,8,20,4)
+> v2 = c(24,4,14,20,50,24)
+> df = data.frame(v1,v2)
+> print(df)
+  v1 v2
+1  4 24
+2 24  4
+3 14 14
+4  8 20
+5 20 50
+6  4 24
+> print(duplicated(df))
+[1] FALSE FALSE FALSE FALSE FALSE  TRUE
+> print(unique(df))
+  v1 v2
+1  4 24
+2 24  4
+3 14 14
+4  8 20
+5 20 50
+
+
+Slip_9
+> a = c("A","B","C","D","E","A","C","F")
+> f = factor(a)
+> print(f)
+[1] A B C D E A C F
+Levels: A B C D E F
+> levels(f)[1]="U"
+> print(f)
+[1] U B C D E U C F
+Levels: U B C D E F
+
+
+Slip_11
+> N1 = c(5,7,9,11)
+> N2 = c(2,3)
+> array = array(c(N1,N2),dim=c(3,3,1))
+> print(array)
+, , 1
+
+     [,1] [,2] [,3]
+[1,]    5   11    5
+[2,]    7    2    7
+[3,]    9    3    9
+
+> print(sum(array))
+[1] 58
+> print(array-array)
+, , 1
+
+     [,1] [,2] [,3]
+[1,]    0    0    0
+[2,]    0    0    0
+[3,]    0    0    0
+
+
+Slip_12
+> N = 14
+> for(i in 1:10){
++ print(N*i)
++ }
+[1] 14
+[1] 28
+[1] 42
+[1] 56
+[1] 70
+[1] 84
+[1] 98
+[1] 112
+[1] 126
+[1] 140
+
+Version_2 : 
+> for(i in 1:10){
++ stmt = "*"
++ fstmt = paste(N,stmt,i,"=",i*N,sep = " ")
++ print(fstmt)
++ }
+[1] "14 * 1 = 14"
+[1] "14 * 2 = 28"
+[1] "14 * 3 = 42"
+[1] "14 * 4 = 56"
+[1] "14 * 5 = 70"
+[1] "14 * 6 = 84"
+[1] "14 * 7 = 98"
+[1] "14 * 8 = 112"
+[1] "14 * 9 = 126"
+[1] "14 * 10 = 140"
+
+
+Slip_14
+> F1 = factor(c(78, 98, 45, 35, 10))
+> F2 = factor(c(14, 24, 4, 20, 66))
+> F = factor(c(F1, F2))
+> print(F)
+ [1] 78 98 45 35 10 14 24 4  20 66
+Levels: 10 35 45 78 98 4 14 20 24 66
+> sort_F = factor(sort(F,decreasing=TRUE),levels = levels(F))
+> print(sort_F)
+ [1] 66 24 20 14 4  98 78 45 35 10
+Levels: 10 35 45 78 98 4 14 20 24 66
+
+
+Slip_15
+> letters = factor(sample(LETTERS,25))
+> levels = unique(letters)
+> L = levels[1:5]
+> print(L)
+[1] F M E Z J
+Levels: A B C D E F G H I J K L M N O P Q R S U V W X Y Z
+
+
+Slip_16
+> data(mtcars)
+> subset = mtcars$mpg[mtcars$mpg > 15.0]
+> head(subset,5)
+[1] 21.0 21.0 22.8 21.4 18.7
+> data(mtcars)
+> subset = mtcars$mpg[mtcars$mpg > 15.0]
+> air_quality = subset(airquality, Ozone > 28 | Temp > 70)
+> head(air_quality,5)
+   Ozone Solar.R Wind Temp Month Day
+1     41     190  7.4   67     5   1
+2     36     118  8.0   72     5   2
+3     12     149 12.6   74     5   3
+11     7      NA  6.9   74     5  11
+17    34     307 12.0   66     5  17
+> subset_airquality = subset(airquality, Ozone > 100, select = c("Ozone","Temp","Month","Day"))
+> print(subset_airquality)
+    Ozone Temp Month Day
+30    115   79     5  30
+62    135   84     7   1
+86    108   85     7  25
+99    122   89     8   7
+101   110   90     8   9
+117   168   81     8  25
+121   118   94     8  29
+
+
+Slip_17
+> convert_to_binary <- function(n){
++ if(n>1){
++ convert_to_binary(as.integer(n/2))
++ }
++ cat(n%%2)
++ }
+> convert_to_binary(1000)
+1111101000> 
+
+
+Slip_18
+> a = c(78,89,97)
+> b = c(45,56,64)
+> c = c(12,23,31)
+> matrix = matrix(data = c(a,b,c),nrow = 3, byrow = FALSE)
+> print(matrix)
+     [,1] [,2] [,3]
+[1,]   78   45   12
+[2,]   89   56   23
+[3,]   97   64   31
+
+
+Slip_19
+> plot.new()
+> plot(1, type="n",xlab="",ylab="",xlim=c(0,50),ylim=c(0,50))
+
+
+Slip_21
+install.packages("lattice")
+> library(lattice)
+> data("PlantGrowth")
+> y <- PlantGrowth$weight
+> barplot(table(y), main = "Distribution of Plant Weights", xlab = "Weight", ylab = "Frequency")
+> densityplot(~weight | group, data = PlantGrowth, layout = c(1, 3))
+
+
+Slip_22
+> for(i in 1:100){
++ if(i%%3 == 0){ print("SY") }
++ else if(i%%5 == 0){ print("BBA") }
++ else if(i%%3 == 0 & i%%5 == 0){ print("SYBBA") }
++ }
+
+
+Slip_23
+> V1 = c(78,89,97,45,55)
+> V2 = c(32,20,14)
+> M = array(c(V1,V2),dim=c(3,3,1))
+> print(M)
+, , 1
+
+     [,1] [,2] [,3]
+[1,]   78   45   20
+[2,]   89   55   14
+[3,]   97   32   78
+> print(M[2,,])
+[1] 89 55 14
+
+
+Slip_25
+> L = list(c(1,2,3,4,5,6),matrix(c(7,8,9,10),nrow=2),asin)
+> print(L)
+[[1]]
+[1] 1 2 3 4 5 6
+
+[[2]]
+     [,1] [,2]
+[1,]    7    9
+[2,]    8   10
+
+[[3]]
+function (x)  .Primitive("asin")
+
+Version_2
+> List = list(c(1,2,3,4,5,6),matrix(c(7,8,9,10),nrow=2), function(x) x^2)
+> print(List)
+[[1]]
+[1] 1 2 3 4 5 6
+
+[[2]]
+     [,1] [,2]
+[1,]    7    9
+[2,]    8   10
+
+[[3]]
+function(x) x^2
+
+
+Slip_27
+> convert_to_decimal <- function(n) {
++   decimal <- 0
++   base <- 1
++   while (n > 0) {
++     remainder <- n %% 10
++     decimal <- decimal + remainder * base
++     base <- base * 2
++     n <- as.integer(n / 10)
++   } 
++   cat(decimal)
++ }
+> binary_number <- 1101
+> convert_to_decimal(binary_number)
+13>
